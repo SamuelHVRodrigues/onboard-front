@@ -1,12 +1,14 @@
+import ValidateLogin from './validators';
+
 function Login() {
   return (
     <div>
       <h1>Bem-vindo(a) à Taqtile!</h1>
-      <form>
+      <form onSubmit={ValidateLogin}>
         <label>E-mail</label>
-        <input type={'email'}></input>
+        <input name='email' type={'email'}></input>
         <label>Senha</label>
-        <input type={'password'}></input>
+        <input name='password' type={'password'}></input>
         <button type='submit'>Entrar</button>
       </form>
     </div>
