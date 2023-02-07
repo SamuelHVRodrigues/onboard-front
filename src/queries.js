@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const LOGIN_MUTATION = gql`
+export const LOGIN_MUTATION = gql`
   mutation Login($email: String!, $password: String!) {
     login(data: { email: $email, password: $password }) {
       token
@@ -16,4 +16,13 @@ const LOGIN_MUTATION = gql`
   }
 `;
 
-export default LOGIN_MUTATION;
+export const USERS = gql`
+  query Users {
+    users {
+      nodes {
+        name
+        email
+      }
+    }
+  }
+`;
