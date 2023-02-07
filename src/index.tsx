@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Login from './login';
+import Login from './login-page';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 export const client = new ApolloClient({

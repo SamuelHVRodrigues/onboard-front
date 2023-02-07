@@ -1,25 +1,24 @@
-const validateLogin = (e: any) => {
-  e.preventDefault();
-  const input = { email: e.target.elements.email.value, password: e.target.elements.password.value };
+const validateLoginInput = (input: { email: string; password: string }) => {
+  const { email, password } = input;
 
-  const regexEmail = /^[a-zA-Z]+(?:[a-zA-Z0-9])*(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-z]+)+$/;
+  const regexEmail = /^[a-zA-Z]+(?:[a-zA-Z0-9])*(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.+[a-z]+)+$/;
   const regexPassword = /(?=.*\d)(?=.*[a-zA-Z])\w{7,}/;
 
-  if (!input.email) {
+  if (!email) {
     return alert('Email is required');
   }
 
-  if (!regexEmail.test(input.email)) {
+  if (!regexEmail.test(email)) {
     return alert('Invalid email');
   }
 
-  if (!input.password) {
+  if (!password) {
     return alert('Password is required');
   }
 
-  if (!regexPassword.test(input.password)) {
+  if (!regexPassword.test(password)) {
     return alert('Invalid password');
   }
 };
 
-export default validateLogin;
+export default validateLoginInput;
