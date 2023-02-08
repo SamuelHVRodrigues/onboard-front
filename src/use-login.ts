@@ -1,5 +1,5 @@
 import { ApolloError, useMutation } from '@apollo/client';
-import LOGIN_MUTATION from './queries';
+import { LOGIN_MUTATION } from './queries';
 import validateLoginInput from './validators';
 
 type UseLoginReturn = [

@@ -14,7 +14,8 @@ const Home = () => {
     <div>
       <h1>Home</h1>
       <div>
-        {data ? (
+        {!localStorage.getItem('token') && <Link to='/'>Faça login</Link>}
+        {data && (
           <ul>
             {data.users.nodes.map((user: User, index: number) => (
               <li key={index}>
@@ -22,12 +23,9 @@ const Home = () => {
               </li>
             ))}
           </ul>
-        ) : (
-          <Link to='/'>Faça login</Link>
         )}
       </div>
     </div>
   );
 };
-
 export default Home;
