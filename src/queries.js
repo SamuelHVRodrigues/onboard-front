@@ -17,12 +17,20 @@ export const LOGIN_MUTATION = gql`
 `;
 
 export const USERS = gql`
-  query Users {
-    users {
+  query Users($limit: Int, $offset: Int) {
+    users(data: { limit: $limit, offset: $offset }) {
       nodes {
+        id
         name
         email
       }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        limit
+        offset
+      }
+      count
     }
   }
 `;

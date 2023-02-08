@@ -10,7 +10,7 @@ const httpLink = createHttpLink({ uri: 'https://template-onboarding-node-sjz6wna
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('token');
 
-  return { headers: { ...headers, authorization: token ? token.split(' ')[1].slice(0, -1) : '' } };
+  return { headers: { ...headers, authorization: token ? token.split(' ')[1] : '' } };
 });
 
 const client = new ApolloClient({
