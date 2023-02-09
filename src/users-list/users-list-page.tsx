@@ -1,8 +1,8 @@
 import { useLazyQuery } from '@apollo/client';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import PageButton from './pagination-button';
-import { USERS } from './queries';
+import PageButton from '../utils/pagination-button';
+import { USERS } from '../queries';
 
 interface User {
   name: string;
@@ -11,7 +11,7 @@ interface User {
 
 const LIMIT_OF_USERS_TO_SHOW = 10;
 
-const Home = () => {
+const UsersListPage = () => {
   const [getUsers, { data, loading, error }] = useLazyQuery(USERS);
 
   useEffect(() => {
@@ -20,11 +20,12 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Lista de usuários</h1>
       <div>
         {!localStorage.getItem('token') && <Link to='/'>Faça login</Link>}
         {data && (
           <div>
+            <Link to={'/create-user'}>Criar usuário</Link>
             <ul>
               {data?.users.nodes.map((user: User, index: number) => (
                 <li key={index}>
@@ -66,4 +67,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default UsersListPage;

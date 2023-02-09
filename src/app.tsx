@@ -1,12 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './home';
-import Login from './login-page';
+import UsersList from './users-list/users-list-page';
+import Login from './login/login-page';
+import CreateUser from './create-user/create-user-page';
 
 function App() {
   return (
     <Routes>
       <Route element={<Login />} path='/' />
-      <Route element={<Home />} path='/home' />
+      <Route element={<UsersList />} path='/users-list' />
+      <Route element={<CreateUser />} path='/create-user' />
     </Routes>
   );
 }

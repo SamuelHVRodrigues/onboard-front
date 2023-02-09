@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginForm from './login-forms';
+import LoginForm from './login-form';
 import useLogin from './use-login';
 
 function LoginPage() {
@@ -9,11 +9,11 @@ function LoginPage() {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      navigate('/home');
+      navigate('/users-list');
     }
     if (token) {
       localStorage.setItem('token', token);
-      navigate('/home');
+      navigate('/users-list');
     }
   }, [token]);
 

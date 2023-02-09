@@ -1,4 +1,4 @@
-import loader from './assets/loading.svg';
+import loader from '../assets/loading.svg';
 
 interface ButtonProps {
   text: string;
