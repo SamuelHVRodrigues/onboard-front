@@ -17,66 +17,42 @@ const CreateUserForm: FC<CreateUserFormProps> = (props) => {
 
   const handleNameChange = (event: { target: { value: string } }) => {
     setFormField((prev) => ({
+      ...prev,
       name: event.target.value,
-      email: prev.email,
-      password: prev.password,
-      phone: prev.phone,
-      birthDate: prev.birthDate,
-      role: prev.role,
     }));
   };
 
   const handleEmailChange = (event: { target: { value: string } }) => {
     setFormField((prev) => ({
-      name: prev.name,
+      ...prev,
       email: event.target.value,
-      password: prev.password,
-      phone: prev.phone,
-      birthDate: prev.birthDate,
-      role: prev.role,
     }));
   };
 
   const handlePasswordChange = (event: { target: { value: string } }) => {
     setFormField((prev) => ({
-      name: prev.name,
-      email: prev.email,
+      ...prev,
       password: event.target.value,
-      phone: prev.phone,
-      birthDate: prev.birthDate,
-      role: prev.role,
     }));
   };
 
   const handlePhoneChange = (event: { target: { value: string } }) => {
     setFormField((prev) => ({
-      name: prev.name,
-      email: prev.email,
-      password: prev.password,
+      ...prev,
       phone: event.target.value,
-      birthDate: prev.birthDate,
-      role: prev.role,
     }));
   };
 
   const handleBirthDateChange = (event: { target: { value: string } }) => {
     setFormField((prev) => ({
-      name: prev.name,
-      email: prev.email,
-      password: prev.password,
-      phone: prev.phone,
+      ...prev,
       birthDate: event.target.value,
-      role: prev.role,
     }));
   };
 
   const handleRoleChange = (event: { target: { value: string } }) => {
     setFormField((prev) => ({
-      name: prev.name,
-      email: prev.email,
-      password: prev.password,
-      phone: prev.phone,
-      birthDate: prev.birthDate,
+      ...prev,
       role: event.target.value,
     }));
   };
