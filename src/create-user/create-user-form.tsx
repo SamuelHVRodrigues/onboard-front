@@ -1,8 +1,10 @@
 import { FC, useState } from 'react';
+import Button from '../utils/button';
 import { UserInput } from './use-create-user';
 
 interface CreateUserFormProps {
   validateAndCreateUser: (input: UserInput) => void;
+  loading: boolean;
 }
 
 const CreateUserForm: FC<CreateUserFormProps> = (props) => {
@@ -97,7 +99,7 @@ const CreateUserForm: FC<CreateUserFormProps> = (props) => {
         <label htmlFor='user'>User</label>
       </label>
       <br />
-      <input type='submit' value='Criar usuário' />
+      <Button text={'Concluir'} loading={props.loading} disabled={props.loading} />
     </form>
   );
 };

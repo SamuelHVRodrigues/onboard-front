@@ -4,7 +4,7 @@ import CreateUserForm from './create-user-form';
 import useCreateUser from './use-create-user';
 
 function CreateUserPage() {
-  const [validataAndCreateUser, { user, error }] = useCreateUser();
+  const [validataAndCreateUser, { user, loading, error }] = useCreateUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function CreateUserPage() {
   return (
     <div>
       <h1>Criar usuário</h1>
-      <CreateUserForm validateAndCreateUser={validataAndCreateUser} />
+      <CreateUserForm validateAndCreateUser={validataAndCreateUser} loading={loading} />
       {error && <p>Error: {error.message}</p>}
     </div>
   );

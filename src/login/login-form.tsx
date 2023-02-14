@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
+import Button from '../utils/button';
 
 interface LoginFormProps {
   validateAndLogin: (input: { email: string; password: string }) => void;
+  loading: boolean;
 }
 
 const LoginForm: FC<LoginFormProps> = (props) => {
@@ -30,7 +32,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
         Password:
         <input type='password' value={formFields.password} onChange={handlePasswordChange} />
       </label>
-      <input type='submit' value='Entrar' />
+      <Button text={'Entrar'} loading={props.loading} disabled={props.loading} />
     </form>
   );
 };

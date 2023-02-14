@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from './login-form';
 import useLogin from './use-login';
+import '../style.css';
 
 function LoginPage() {
-  const [validateAndLogin, { token, error }] = useLogin();
+  const [validateAndLogin, { token, loading, error }] = useLogin();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,7 +27,7 @@ function LoginPage() {
   return (
     <div>
       <h1>Bem-vindo(a) à Taqtile!</h1>
-      <LoginForm validateAndLogin={validateAndLogin} />
+      <LoginForm validateAndLogin={validateAndLogin} loading={loading} />
     </div>
   );
 }

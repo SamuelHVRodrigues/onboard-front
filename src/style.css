@@ -1,0 +1,38 @@
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  border-style: solid;
+  border-radius: 10px;
+  height: 30px;
+  width: 200px;
+  display: block;
+}
+
+input[type=radio] {
+  border-style: solid;
+  border-radius: 10px;
+  height: 17px;
+  width: 17px;
+  display: inline;
+  margin-left: 10px;
+}
+
+Button {
+  color: #fff;
+  background-color: #3d7ec5;
+  font-size: 15px;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+  margin: 15px 0;
+}
