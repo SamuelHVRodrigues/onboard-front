@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Title, Wrapper } from '../styled';
 import LoginForm from './login-form';
 import useLogin from './use-login';
 
 function LoginPage() {
-  const [validateAndLogin, { token, error }] = useLogin();
+  const [validateAndLogin, { token, loading, error }] = useLogin();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,10 +25,10 @@ function LoginPage() {
   }, [error]);
 
   return (
-    <div>
-      <h1>Bem-vindo(a) à Taqtile!</h1>
-      <LoginForm validateAndLogin={validateAndLogin} />
-    </div>
+    <Wrapper>
+      <Title>Bem-vindo(a) à Taqtile!</Title>
+      <LoginForm validateAndLogin={validateAndLogin} loading={loading} />
+    </Wrapper>
   );
 }
 

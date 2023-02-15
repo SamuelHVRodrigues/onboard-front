@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Title, Wrapper } from '../styled';
 import CreateUserForm from './create-user-form';
 import useCreateUser from './use-create-user';
 
 function CreateUserPage() {
-  const [validataAndCreateUser, { user, error }] = useCreateUser();
+  const [validataAndCreateUser, { user, loading, error }] = useCreateUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,11 +15,11 @@ function CreateUserPage() {
   }, [user]);
 
   return (
-    <div>
-      <h1>Criar usuário</h1>
-      <CreateUserForm validateAndCreateUser={validataAndCreateUser} />
+    <Wrapper>
+      <Title>Criar usuário</Title>
+      <CreateUserForm validateAndCreateUser={validataAndCreateUser} loading={loading} />
       {error && <p>Error: {error.message}</p>}
-    </div>
+    </Wrapper>
   );
 }
 

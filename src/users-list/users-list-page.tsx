@@ -1,8 +1,8 @@
 import { useLazyQuery } from '@apollo/client';
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import PageButton from '../utils/pagination-button';
 import { USERS } from '../queries';
+import Button from '../utils/button';
 
 interface User {
   id: string;
@@ -40,7 +40,7 @@ const UsersListPage = () => {
                 </li>
               ))}
             </ul>
-            <PageButton
+            <Button
               onClick={() =>
                 getUsers({
                   variables: {
@@ -49,11 +49,11 @@ const UsersListPage = () => {
                   },
                 })
               }
-              type={'previous'}
+              text={'previous'}
               loading={loading}
               disabled={!data?.users.pageInfo.hasPreviousPage}
             />
-            <PageButton
+            <Button
               onClick={() =>
                 getUsers({
                   variables: {
@@ -62,7 +62,7 @@ const UsersListPage = () => {
                   },
                 })
               }
-              type={'next'}
+              text={'next'}
               loading={loading}
               disabled={!data?.users.pageInfo.hasNextPage}
             />

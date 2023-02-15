@@ -1,8 +1,11 @@
 import { FC, useState } from 'react';
+import { Form, Input, InputRadio, Label, Wrapper } from '../styled';
+import Button from '../utils/button';
 import { UserInput } from './use-create-user';
 
 interface CreateUserFormProps {
   validateAndCreateUser: (input: UserInput) => void;
+  loading: boolean;
 }
 
 const CreateUserForm: FC<CreateUserFormProps> = (props) => {
@@ -63,42 +66,38 @@ const CreateUserForm: FC<CreateUserFormProps> = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Nome:
-        <input type='text' value={formFields.name} onChange={handleNameChange} />
-      </label>
-      <br />
-      <label>
-        Email:
-        <input type='email' value={formFields.email} onChange={handleEmailChange} />
-      </label>
-      <br />
-      <label>
-        Senha:
-        <input type='password' value={formFields.password} onChange={handlePasswordChange} />
-      </label>
-      <br />
-      <label>
-        Telefone:
-        <input type='tel' value={formFields.phone} onChange={handlePhoneChange} />
-      </label>
-      <br />
-      <label>
-        Data de nascimento:
-        <input type='date' value={formFields.birthDate} onChange={handleBirthDateChange} />
-      </label>
-      <br />
-      <label>
-        Função:
-        <input type='radio' name='role' id='admin' value={'admin'} onChange={handleRoleChange} />
-        <label htmlFor='admin'>Admin</label>
-        <input type='radio' name='role' id='user' value={'user'} onChange={handleRoleChange} />
-        <label htmlFor='user'>User</label>
-      </label>
-      <br />
-      <input type='submit' value='Criar usuário' />
-    </form>
+    <Wrapper>
+      <Form onSubmit={handleSubmit}>
+        <Label>
+          Nome:
+          <Input type='text' value={formFields.name} onChange={handleNameChange} />
+        </Label>
+        <Label>
+          Email:
+          <Input type='email' value={formFields.email} onChange={handleEmailChange} />
+        </Label>
+        <Label>
+          Senha:
+          <Input type='password' value={formFields.password} onChange={handlePasswordChange} />
+        </Label>
+        <Label>
+          Telefone:
+          <Input type='tel' value={formFields.phone} onChange={handlePhoneChange} />
+        </Label>
+        <Label>
+          Data de nascimento:
+          <Input type='date' value={formFields.birthDate} onChange={handleBirthDateChange} />
+        </Label>
+        <Label>
+          Função:
+          <InputRadio type='radio' name='role' id='admin' value={'admin'} onChange={handleRoleChange} />
+          <Label htmlFor='admin'>Admin</Label>
+          <InputRadio type='radio' name='role' id='user' value={'user'} onChange={handleRoleChange} />
+          <Label htmlFor='user'>User</Label>
+        </Label>
+        <Button text={'Concluir'} loading={props.loading} disabled={props.loading} />
+      </Form>
+    </Wrapper>
   );
 };
 
