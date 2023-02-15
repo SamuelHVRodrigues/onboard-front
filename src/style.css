@@ -23,6 +23,7 @@ input[type=radio] {
   width: 17px;
   display: inline;
   margin-left: 10px;
+  color: gr;
 }
 
 Button {

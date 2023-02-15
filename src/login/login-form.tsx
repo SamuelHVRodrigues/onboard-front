@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { Form, FormWrapper, Input, Label, Wrapper } from '../styled';
 import Button from '../utils/button';
 
 interface LoginFormProps {
@@ -23,17 +24,19 @@ const LoginForm: FC<LoginFormProps> = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email:
-        <input type='email' value={formFields.email} onChange={handleEmailChange} />
-      </label>
-      <label>
-        Password:
-        <input type='password' value={formFields.password} onChange={handlePasswordChange} />
-      </label>
-      <Button text={'Entrar'} loading={props.loading} disabled={props.loading} />
-    </form>
+    <Wrapper>
+      <Form onSubmit={handleSubmit}>
+        <Label>
+          Email:
+          <Input type='email' value={formFields.email} onChange={handleEmailChange}></Input>
+        </Label>
+        <Label>
+          Password:
+          <Input type='password' value={formFields.password} onChange={handlePasswordChange}></Input>
+        </Label>
+        <Button text={'Entrar'} loading={props.loading} disabled={props.loading} />
+      </Form>
+    </Wrapper>
   );
 };
 

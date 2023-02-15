@@ -1,4 +1,5 @@
 import loader from '../assets/loading.svg';
+import { StyledButton } from '../styled';
 
 interface ButtonProps {
   text: string;
@@ -9,9 +10,9 @@ interface ButtonProps {
 
 const Button = (props: ButtonProps) => {
   return (
-    <button onClick={props.onClick} disabled={props.disabled}>
+    <StyledButton onClick={props.onClick} disabled={props.disabled}>
       {!props.loading ? props.text : <img src={loader} height='14' />}
-    </button>
+    </StyledButton>
   );
 };
 
